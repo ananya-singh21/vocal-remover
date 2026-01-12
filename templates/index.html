@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Audio Separator </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0e4f7; /* Light lavender */
+            color: #4a4a4a; /* Darker gray for better contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #8e44ad; /* Purple */
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        h1 .icon {
+            margin: 0 10px;
+            font-size: 0.8em;
+        }
+
+        h2 {
+            color: #9b59b6; /* Lighter Purple */
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #5e3370; /* Darker purple */
+            font-size: 1.1em;
+        }
+
+        input[type="file"] {
+            display: none; /* Hide default input */
+        }
+        
+        .file-upload-label {
+            background-color: #9b59b6;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em;
+            display: inline-block;
+        }
+        
+        .file-upload-label:hover {
+            background-color: #8e44ad;
+        }
+        
+        #fileName {
+            margin-top: 10px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        input[type="submit"] {
+            background-color: #2ecc71; /* Green */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #27ae60; /* Darker Green */
+            transform: translateY(-2px);
+        }
+        
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background-color: #f9f3fc; /* Very light lavender */
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        li span {
+            font-weight: bold;
+            color: #8e44ad;
+            font-size: 1.1em;
+        }
+
+        .download-button {
+            background-color: #3498db; /* Blue */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #2980b9; /* Darker Blue */
+        }
+
+        .message {
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+        .message .icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .error {
+            background-color: #ffe0e0; /* Light red */
+            color: #c0392b; /* Dark red */
+            border: 1px solid #e74c3c;
+        }
+
+        .success {
+            background-color: #e0ffe6; /* Light green */
+            color: #27ae60; /* Dark green */
+            border: 1px solid #2ecc71;
+        }
+        
+        .info {
+            background-color: #e0f2ff; /* Light blue */
+            color: #2980b9; /* Dark blue */
+            border: 1px solid #3498db;
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #bdc3c7; /* Gray */
+            color: #2c3e50; /* Dark Blue-Gray */
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .footer-link:hover {
+            background-color: #95a5a6; /* Darker Gray */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-magic icon"></i> Audio Separator<i class="fas fa-music icon"></i></h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="message {{ category }}">
+                        {% if category == 'success' %}<i class="fas fa-check-circle icon"></i>
+                        {% elif category == 'error' %}<i class="fas fa-exclamation-triangle icon"></i>
+                        {% elif category == 'info' %}<i class="fas fa-info-circle icon"></i>
+                        {% endif %}
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% if track_id and available_stems %}
+            <h2>Voilà! Your audio is ready! ✨</h2>
+            <p>Separated from: <strong>{{ original_display_name }}</strong></p>
+            <ul>
+                {% for stem in available_stems %}
+                <li>
+                    <span>
+                        {% if stem == 'no_vocals.wav' %}
+                            <i class="fas fa-drum"></i> Instrumental (No Vocals)
+                        {% elif stem == 'vocals.wav' %}
+                            <i class="fas fa-microphone-alt"></i> Vocals
+                        {% else %}
+                            <i class="fas fa-sliders-h"></i> {{ stem.split('.')[0] | capitalize }}
+                        {% endif %}
+                    </span>
+                    <a href="{{ url_for('download_file', track_id=track_id, stem_filename=stem) }}" class="download-button">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('index') }}" class="footer-link"><i class="fas fa-sync-alt"></i> Process Another Song</a>
+        {% else %}
+            <h2>Upload Your Tune! 🎶</h2>
+            <p>Let's separate those vocals from the background music. <br>This app uses the <strong>{{ model_name }}</strong> model.</p>
+            <form method="post" enctype="multipart/form-data" id="uploadForm">
+                <div class="form-group">
+                    <label for="file" class="file-upload-label"><i class="fas fa-upload"></i> Choose Audio File</label>
+                    <input type="file" id="file" name="file" accept=".mp3,.wav,.flac,.ogg,.m4a" required>
+                    <div id="fileName">No file chosen... yet!</div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="✨ Separate My Song! ✨">
+                </div>
+            </form>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('file').onchange = function () {
+            varfileName = this.files[0] ? this.files[0].name : "No file chosen... yet!";
+            document.getElementById('fileName').textContent = 'Selected: ' + fileName;
+        };
+    </script>
+</body>
+</html>
