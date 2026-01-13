@@ -1,4 +1,3 @@
-<!-- README refresh -->
 # 🎵 Vocal Remover (Demucs-based Web App)
 
 A simple web-based **vocal remover** built using **Python, Flask, and Demucs**.  
@@ -8,7 +7,7 @@ This application allows users to upload an audio file and separate **vocals** an
 
 ## 🚀 Features
 
-- Upload audio files (`.mp3`, `.wav`)
+- Upload audio files (`.mp3`)
 - Separate vocals and background music using **Demucs**
 - Simple web interface built with **Flask**
 - Automatically saves separated audio outputs
@@ -21,7 +20,7 @@ This application allows users to upload an audio file and separate **vocals** an
 - **Python**
 - **Flask**
 - **Demucs (htdemucs model)**
-- **HTML (Jinja templates)**
+- **HTML**
 - **Git & GitHub**
 
 ---
@@ -107,7 +106,6 @@ http://127.0.0.1:5000
 - Deploy on cloud (Render / HuggingFace Spaces)
 - Support more audio formats
 - Improve UI/UX
-- Add download buttons for separated tracks
 
 ---
 
