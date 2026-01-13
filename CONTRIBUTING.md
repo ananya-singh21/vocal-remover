@@ -62,119 +62,112 @@ git checkout -b feature/your-feature-name
 ---
 ### 6️⃣ Make Your Changes
 
-You can contribute by:
+**You can contribute by:**
 
--Improving UI (HTML / CSS)
--Optimizing audio processing
--Refactoring backend code
--Improving documentation
--Fixing bugs
--Adding new features
+- `Improving UI (HTML / CSS)`
+- `Optimizing audio processing`
+- `Refactoring backend code`
+- `Improving documentation`
+- `Fixing bugs`
+- `Adding new features`
+---
 
-📁 Important files:
+### 7️⃣ Test Your Changes
 
-app.py → Flask backend
+## ✅ Before Committing
 
-audio_separator.py → Demucs logic
+- Ensure the application runs correctly
+- Upload an audio file and verify the output
+- Check the console for any errors
 
-templates/ → Frontend HTML
+## Run the application
 
-uploads/ → Uploaded audio files
-
-separated/ → Output audio files
-
-7️⃣ Test Your Changes
-
-Before committing:
-
-Ensure the app runs correctly
-
-Upload an audio file and verify output
-
-Check console for errors
-
-Run:
-
+```bash
 python app.py
+```
+---
 
-8️⃣ Commit Your Changes
+## 8️⃣ Commit Your Changes
 
-Follow clear commit messages:
+Follow clear and meaningful commit messages:
 
+```bash
 git add .
 git commit -m "Add feature: improve upload validation"
+```
+---
 
-9️⃣ Push to Your Fork
+### 9️⃣ Push to Your Fork
+```bash
 git push origin feature/your-feature-name
+```
+---
+## 🔟 Open a Pull Request
 
-🔟 Open a Pull Request
+- Go to the original repository
+- Click **Compare & Pull Request**
+- Clearly describe:
+  - What you changed
+  - Why it is needed
+  - Any issues fixed (if applicable)
+---
 
-Go to the original repository
+## 📁 Important files:
 
-Click Compare & Pull Request
+- **app.py** → Flask backend
+- **audio_separator.py** → Demucs audio separation logic
+- **templates/** → Frontend HTML templates
+- **uploads/** → Uploaded audio files
+- **separated/** → Output (separated) audio files
+---
 
-Clearly describe:
+## 🧹 Code Guidelines
 
-What you changed
+- Follow **PEP 8** for Python code
+- Keep functions small and readable
+- Use meaningful variable names
+- Add comments where logic is complex
+- Avoid committing large audio files
 
-Why it is needed
+---
 
-Any issues fixed (if applicable)
-
-🧹 Code Guidelines
-
-Follow PEP8 for Python code
-
-Keep functions small and readable
-
-Use meaningful variable names
-
-Add comments where logic is complex
-
-Avoid committing large audio files
-
-🐛 Reporting Issues
+## 🐛 Reporting Issues
 
 If you find a bug:
 
-Open an Issue
+- Open an **Issue**
+- Clearly explain:
+  - Steps to reproduce
+  - Expected behavior
+  - Actual behavior
+  - Screenshots or logs (if any)
 
-Clearly explain:
+---
 
-Steps to reproduce
-
-Expected behavior
-
-Actual behavior
-
-Screenshots/logs (if any)
-
-🌱 Beginner-Friendly Contributions
+## 🌱 Beginner-Friendly Contributions
 
 Good first contributions include:
 
-Improving README or docs
+- Improving README or documentation
+- UI enhancements
+- Code cleanup and refactoring
+- Adding error handling
+- Improving user experience
 
-UI enhancements
+---
 
-Code cleanup and refactoring
+## 📜 License
 
-Adding error handling
+By contributing, you agree that your contributions will be licensed under the **MIT License**.
 
-Improving user experience
+---
 
-📜 License
-
-By contributing, you agree that your contributions will be licensed under the MIT License.
-
-💬 Need Help?
+## 💬 Need Help?
 
 Feel free to:
 
-Open an issue
-
-Ask questions in discussions
-
-Reach out via GitHub
+- Open an issue
+- Ask questions in discussions
+- Reach out via GitHub
 
 Happy contributing! 🚀🎵
