@@ -25,6 +25,7 @@ Click the **Fork** button on GitHub to create your own copy of the repository.
 git clone https://github.com/<your-username>/vocal-remover.git
 cd vocal-remover
 ```
+---
 ### 3️⃣ Create a Virtual Environment
 
 ```bash
