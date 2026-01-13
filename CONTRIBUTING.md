@@ -58,6 +58,7 @@ Examples:
  -feature/ui-improvement
  -fix/upload-bug
  -docs/update-readme
+```
 ---
 ### 6️⃣ Make Your Changes
 
