@@ -53,11 +53,11 @@ pip install -r requirements.txt
 git checkout -b feature/your-feature-name
 ```
 
-Examples:
+**Examples:**
+- `feature/ui-improvement`
+- `fix/upload-bug`
+- `docs/update-readme`
 
- -feature/ui-improvement
- -fix/upload-bug
- -docs/update-readme
 
 ---
 ### 6️⃣ Make Your Changes
