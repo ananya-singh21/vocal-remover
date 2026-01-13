@@ -31,7 +31,7 @@ cd vocal-remover
 ```bash
 python -m venv venv
 ```
----
+
 ### Activate it
 ---
 ## Windows
@@ -42,7 +42,7 @@ venv\Scripts\activate
 ```bash
 source venv/bin/activate
 ```
-
+---
 ### 4️⃣ Install Dependencies
 ```bash
 pip install -r requirements.txt
