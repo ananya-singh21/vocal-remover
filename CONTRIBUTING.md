@@ -31,8 +31,9 @@ cd vocal-remover
 ```bash
 python -m venv venv
 ```
+---
 ### Activate it
-
+---
 ## Windows
 ```bash
 venv\Scripts\activate
@@ -46,6 +47,7 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+---
 ### 5️⃣ Create a New Branch
 ```bash
 git checkout -b feature/your-feature-name
@@ -53,10 +55,10 @@ git checkout -b feature/your-feature-name
 
 Examples:
 
--feature/ui-improvement
--fix/upload-bug
--docs/update-readme
-
+ -feature/ui-improvement
+ -fix/upload-bug
+ -docs/update-readme
+---
 ### 6️⃣ Make Your Changes
 
 You can contribute by:
